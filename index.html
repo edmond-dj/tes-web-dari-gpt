@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tes Web dari GPT</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="navbar">
+      <div class="logo">🚀 Tes Web GPT</div>
+      <button id="themeToggle" class="btn btn-ghost" type="button">Mode Gelap</button>
+    </nav>
+
+    <section class="hero-content">
+      <p class="badge">Aplikasi web sederhana</p>
+      <h1>Website modern yang dibuat dan dipush dari ChatGPT.</h1>
+      <p class="lead">
+        Ini adalah project awal berbasis HTML, CSS, dan JavaScript. Cocok untuk latihan GitHub,
+        landing page sekolah, profil pribadi, atau template aplikasi sederhana.
+      </p>
+      <div class="hero-actions">
+        <a href="#fitur" class="btn btn-primary">Lihat Fitur</a>
+        <a href="#catatan" class="btn btn-secondary">Coba Catatan</a>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section id="fitur" class="section">
+      <div class="section-title">
+        <p class="badge">Fitur</p>
+        <h2>Yang sudah tersedia</h2>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <span class="icon">🎨</span>
+          <h3>Desain Responsif</h3>
+          <p>Tampilan menyesuaikan layar HP, tablet, dan laptop.</p>
+        </article>
+        <article class="card">
+          <span class="icon">🌙</span>
+          <h3>Mode Gelap</h3>
+          <p>Pengguna bisa mengganti tema terang dan gelap.</p>
+        </article>
+        <article class="card">
+          <span class="icon">📝</span>
+          <h3>Catatan Lokal</h3>
+          <p>Form catatan tersimpan di browser memakai localStorage.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="catatan" class="section split">
+      <div>
+        <p class="badge">Demo Interaktif</p>
+        <h2>Buat catatan sederhana</h2>
+        <p>
+          Tulis ide aplikasi, tugas sekolah, atau daftar pekerjaan. Data tersimpan di perangkat ini,
+          jadi cocok untuk latihan JavaScript dasar.
+        </p>
+      </div>
+
+      <div class="panel">
+        <form id="noteForm" class="note-form">
+          <label for="noteInput">Catatan baru</label>
+          <textarea id="noteInput" placeholder="Contoh: Buat dashboard absensi siswa..." required></textarea>
+          <button class="btn btn-primary" type="submit">Simpan Catatan</button>
+        </form>
+        <ul id="noteList" class="note-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Dibuat oleh GPT untuk akun GitHub edmond-dj.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
