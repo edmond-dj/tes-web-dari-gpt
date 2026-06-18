@@ -3,80 +3,185 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tes Web dari GPT</title>
+  <title>Dashboard Sekolah Sederhana</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="hero">
-    <nav class="navbar">
-      <div class="logo">🚀 Tes Web GPT</div>
-      <button id="themeToggle" class="btn btn-ghost" type="button">Mode Gelap</button>
-    </nav>
-
-    <section class="hero-content">
-      <p class="badge">Aplikasi web sederhana</p>
-      <h1>Website modern yang dibuat dan dipush dari ChatGPT.</h1>
-      <p class="lead">
-        Ini adalah project awal berbasis HTML, CSS, dan JavaScript. Cocok untuk latihan GitHub,
-        landing page sekolah, profil pribadi, atau template aplikasi sederhana.
-      </p>
-      <div class="hero-actions">
-        <a href="#fitur" class="btn btn-primary">Lihat Fitur</a>
-        <a href="#catatan" class="btn btn-secondary">Coba Catatan</a>
-      </div>
-    </section>
-  </header>
-
-  <main>
-    <section id="fitur" class="section">
-      <div class="section-title">
-        <p class="badge">Fitur</p>
-        <h2>Yang sudah tersedia</h2>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-icon">🏫</span>
+        <div>
+          <strong>Dashboard</strong>
+          <small>Sekolah Digital</small>
+        </div>
       </div>
 
-      <div class="grid">
-        <article class="card">
-          <span class="icon">🎨</span>
-          <h3>Desain Responsif</h3>
-          <p>Tampilan menyesuaikan layar HP, tablet, dan laptop.</p>
-        </article>
-        <article class="card">
-          <span class="icon">🌙</span>
-          <h3>Mode Gelap</h3>
-          <p>Pengguna bisa mengganti tema terang dan gelap.</p>
-        </article>
-        <article class="card">
-          <span class="icon">📝</span>
-          <h3>Catatan Lokal</h3>
-          <p>Form catatan tersimpan di browser memakai localStorage.</p>
-        </article>
-      </div>
-    </section>
+      <nav class="menu">
+        <button class="menu-item active" data-page="dashboard">📊 Statistik</button>
+        <button class="menu-item" data-page="absensi">✅ Absensi</button>
+        <button class="menu-item" data-page="siswa">🎓 Siswa</button>
+        <button class="menu-item" data-page="guru">👨‍🏫 Guru</button>
+        <button class="menu-item" data-page="catatan">📝 Catatan</button>
+      </nav>
+    </aside>
 
-    <section id="catatan" class="section split">
-      <div>
-        <p class="badge">Demo Interaktif</p>
-        <h2>Buat catatan sederhana</h2>
-        <p>
-          Tulis ide aplikasi, tugas sekolah, atau daftar pekerjaan. Data tersimpan di perangkat ini,
-          jadi cocok untuk latihan JavaScript dasar.
-        </p>
-      </div>
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">SMAS Regina Pacis Bajawa</p>
+          <h1 id="pageTitle">Statistik</h1>
+        </div>
+        <button id="themeToggle" class="btn ghost" type="button">Mode Gelap</button>
+      </header>
 
-      <div class="panel">
-        <form id="noteForm" class="note-form">
-          <label for="noteInput">Catatan baru</label>
-          <textarea id="noteInput" placeholder="Contoh: Buat dashboard absensi siswa..." required></textarea>
-          <button class="btn btn-primary" type="submit">Simpan Catatan</button>
-        </form>
-        <ul id="noteList" class="note-list"></ul>
-      </div>
-    </section>
-  </main>
+      <section id="dashboard" class="page active">
+        <div class="stats-grid">
+          <article class="stat-card blue">
+            <span>Total Siswa</span>
+            <strong id="totalStudents">0</strong>
+            <small>Data contoh tersimpan lokal</small>
+          </article>
+          <article class="stat-card green">
+            <span>Hadir Hari Ini</span>
+            <strong id="totalPresent">0</strong>
+            <small>Rekap dari menu absensi</small>
+          </article>
+          <article class="stat-card amber">
+            <span>Total Guru</span>
+            <strong id="totalTeachers">0</strong>
+            <small>Data guru aktif</small>
+          </article>
+          <article class="stat-card purple">
+            <span>Catatan</span>
+            <strong id="totalNotes">0</strong>
+            <small>Agenda dan memo</small>
+          </article>
+        </div>
 
-  <footer>
-    <p>Dibuat oleh GPT untuk akun GitHub edmond-dj.</p>
-  </footer>
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Ringkasan Kehadiran</h2>
+              <p>Persentase berdasarkan data absensi yang dimasukkan.</p>
+            </div>
+            <span id="attendancePercent" class="pill">0%</span>
+          </div>
+          <div class="progress-wrap">
+            <div id="attendanceBar" class="progress-bar"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="absensi" class="page">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Input Absensi</h2>
+              <p>Catat kehadiran siswa secara cepat.</p>
+            </div>
+          </div>
+          <form id="attendanceForm" class="form-grid">
+            <label>Nama Siswa
+              <input id="attendanceName" type="text" placeholder="Contoh: Maria Yosefa" required />
+            </label>
+            <label>Kelas
+              <select id="attendanceClass" required>
+                <option value="X">X</option>
+                <option value="XI">XI</option>
+                <option value="XII">XII</option>
+              </select>
+            </label>
+            <label>Status
+              <select id="attendanceStatus" required>
+                <option value="Hadir">Hadir</option>
+                <option value="Izin">Izin</option>
+                <option value="Sakit">Sakit</option>
+                <option value="Alfa">Alfa</option>
+              </select>
+            </label>
+            <button class="btn primary" type="submit">Simpan Absensi</button>
+          </form>
+        </div>
+
+        <div class="panel">
+          <h2>Rekap Absensi</h2>
+          <div id="attendanceList" class="list"></div>
+        </div>
+      </section>
+
+      <section id="siswa" class="page">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Data Siswa</h2>
+              <p>Tambah data siswa untuk simulasi dashboard.</p>
+            </div>
+          </div>
+          <form id="studentForm" class="form-grid">
+            <label>Nama Siswa
+              <input id="studentName" type="text" placeholder="Nama lengkap siswa" required />
+            </label>
+            <label>Kelas
+              <select id="studentClass" required>
+                <option value="X">X</option>
+                <option value="XI">XI</option>
+                <option value="XII">XII</option>
+              </select>
+            </label>
+            <button class="btn primary" type="submit">Tambah Siswa</button>
+          </form>
+        </div>
+        <div class="panel">
+          <h2>Daftar Siswa</h2>
+          <div id="studentList" class="list"></div>
+        </div>
+      </section>
+
+      <section id="guru" class="page">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Data Guru</h2>
+              <p>Kelola data guru sederhana.</p>
+            </div>
+          </div>
+          <form id="teacherForm" class="form-grid">
+            <label>Nama Guru
+              <input id="teacherName" type="text" placeholder="Nama guru" required />
+            </label>
+            <label>Mata Pelajaran
+              <input id="teacherSubject" type="text" placeholder="Contoh: Informatika" required />
+            </label>
+            <button class="btn primary" type="submit">Tambah Guru</button>
+          </form>
+        </div>
+        <div class="panel">
+          <h2>Daftar Guru</h2>
+          <div id="teacherList" class="list"></div>
+        </div>
+      </section>
+
+      <section id="catatan" class="page">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h2>Catatan Sekolah</h2>
+              <p>Simpan agenda, memo, atau ide pengembangan aplikasi.</p>
+            </div>
+          </div>
+          <form id="noteForm" class="note-form">
+            <textarea id="noteInput" placeholder="Contoh: Besok input data siswa kelas X..." required></textarea>
+            <button class="btn primary" type="submit">Simpan Catatan</button>
+          </form>
+        </div>
+        <div class="panel">
+          <h2>Daftar Catatan</h2>
+          <div id="noteList" class="list"></div>
+        </div>
+      </section>
+    </main>
+  </div>
 
   <script src="script.js"></script>
 </body>
