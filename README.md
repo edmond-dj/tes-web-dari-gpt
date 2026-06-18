@@ -1,14 +1,24 @@
-# Tes Web dari GPT
+# Dashboard Sekolah Sederhana
 
-Aplikasi web sederhana yang dibuat dari ChatGPT dan dipush ke GitHub.
+Aplikasi web dashboard sekolah sederhana berbasis HTML, CSS, dan JavaScript murni.
 
-## Fitur
+Project ini dibuat dan dipush dari ChatGPT ke repository GitHub `edmond-dj/tes-web-dari-gpt`.
 
-- Landing page modern dan responsif
-- Mode terang/gelap
-- Form catatan sederhana
-- Penyimpanan catatan memakai `localStorage`
-- Dibuat dengan HTML, CSS, dan JavaScript murni
+## Link Website
+
+https://edmond-dj.github.io/tes-web-dari-gpt/
+
+## Fitur Utama
+
+- Statistik jumlah siswa, guru, catatan, dan kehadiran
+- Menu Absensi
+- Menu Data Siswa
+- Menu Data Guru
+- Menu Catatan Sekolah
+- Progress persentase kehadiran
+- Mode terang dan mode gelap
+- Data tersimpan di browser menggunakan `localStorage`
+- Tampilan responsif untuk HP dan laptop
 
 ## Struktur File
 
@@ -20,28 +30,27 @@ tes-web-dari-gpt/
 └── README.md
 ```
 
-## Cara Menjalankan
+## Cara Menjalankan Lokal
 
-1. Clone repository ini.
+1. Clone atau download repository ini.
 2. Buka file `index.html` di browser.
-3. Coba tombol mode gelap dan form catatan.
+3. Gunakan menu Absensi, Siswa, Guru, Catatan, dan Statistik.
 
-## Deploy ke GitHub Pages
+## Catatan Teknis
 
-1. Buka repository di GitHub.
-2. Masuk ke **Settings**.
-3. Pilih **Pages**.
-4. Pada bagian **Build and deployment**, pilih branch `main` dan folder `/root`.
-5. Simpan, lalu tunggu GitHub membuat link website.
+Aplikasi ini belum menggunakan database server. Semua data tersimpan di browser pengguna melalui `localStorage`.
 
-## Catatan
+Untuk versi lanjutan, aplikasi dapat dikembangkan dengan:
 
-Project ini bisa dikembangkan menjadi:
+- Login admin/guru/siswa
+- Database Firebase atau Supabase
+- Export Excel
+- Import data siswa
+- Grafik statistik
+- QR absensi
+- Integrasi Google Sheets
+- Backend PHP/MySQL atau Node.js
 
-- Profil pribadi
-- Landing page sekolah
-- Dashboard sederhana
-- Template tugas siswa
-- Aplikasi catatan berbasis web
+## Status
 
-Dibuat untuk akun GitHub `edmond-dj`.
+Versi awal dashboard sudah online dan siap dikembangkan.
